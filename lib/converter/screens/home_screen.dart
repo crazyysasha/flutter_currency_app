@@ -44,6 +44,18 @@ class HomeScreen extends StatelessWidget {
                       to: r,
                       amount: double.tryParse(_amountController.text) ?? 0,
                     ),
+                convertFailure: (message) =>
+                    ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                  ),
+                ),
+                loadFailure: (message) =>
+                    ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                  ),
+                ),
                 convertSuccess: (c, r, t) =>
                     _toAmountController.text = t.toString(),
               ),
